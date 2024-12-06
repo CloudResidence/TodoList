@@ -1,0 +1,16 @@
+<div class="card shadow">
+  <h4 class="card-header">Feladatok listája</h4>
+
+  <div class="card-body">
+    <ul class="list-group" >
+      @for(task of todoService.tasks; track task.id) {
+        <li class="list-group-item">
+          <div class="form-check d-inline">
+            <input type="checkbox" class="form-check-input" (change)="onChange()">
+            <label>{{task.name}}</label>
+          </div>
+        </li>
+        }
+    </ul>
+  </div>
+</div>
