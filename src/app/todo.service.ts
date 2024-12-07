@@ -26,7 +26,7 @@ export class TodoService {
     {
       id: 3,
       name: 'Todo 3',
-      priority: '',
+      priority: 'magas',
       deadline: new Date('2025.03.07'),
       isCompleted: false,
 
@@ -35,8 +35,8 @@ export class TodoService {
 
   constructor() { }
 
-  deleteTask(task) {
-    let index = this.tasks.indexOf(task);
+  deleteTask(itemToDelete:Task ) {
+    let index = this.tasks.indexOf(itemToDelete);
     this.tasks.splice(index,1);
   }
 }

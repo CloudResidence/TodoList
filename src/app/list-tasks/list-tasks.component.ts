@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {TodoService} from '../todo.service';
 import {Task} from '../models/task';
+import {formatDate} from '@angular/common';
 
 @Component({
   selector: 'app-list-tasks',
@@ -23,5 +24,13 @@ export class ListTasksComponent implements OnInit{
   onChange() {
     this.completed = !this.completed;
     this.task.isCompleted = !this.task.isCompleted;
+  }
+
+  deleteTask(itemToDelete: Task) {
+    this.task = itemToDelete;
+    this.todoService.deleteTask(itemToDelete);
+  }
+  dateFormat(date:Date) {
+     return formatDate(date,'yyyy-MM-dd','en-us');
   }
 }
