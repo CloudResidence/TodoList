@@ -9,11 +9,10 @@ import {formatDate} from '@angular/common';
   templateUrl: './list-tasks.component.html',
   styleUrl: './list-tasks.component.css'
 })
-export class ListTasksComponent implements OnInit{
+export class ListTasksComponent implements OnInit {
 
   constructor(public todoService: TodoService) {
   }
-  //@Input() taskInput!: Task;
 
   tasks: Task[] = [];
   completed: boolean = false;
@@ -30,10 +29,11 @@ export class ListTasksComponent implements OnInit{
     this.todoService.deleteTask(index);
     this.loadTasks();
   }
-  dateFormat(date:string) {
-    if(date!="") {
+
+  dateFormat(date: string) {
+    if (date != "") {
       return formatDate(date, 'yyyy-MM-dd', 'en-us');
-    }else {
+    } else {
       return "";
     }
   }

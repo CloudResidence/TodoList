@@ -1,7 +1,7 @@
 <div class="card shadow">
   <h4 class="card-header">Feladatok listája</h4>
   <div class="card-body">
-    <table style="width: 100%" >
+    <table style="width: 100%">
       <tr>
         <th>Állapot</th>
         <th>Feladat neve</th>
@@ -10,24 +10,24 @@
         <th>Törlés</th>
       </tr>
       @for(task of tasks; track task.id) {
-        <tr>
-            <td>
-              <input type="checkbox" class="form-check-input" (change)="onChange($index)">
-            </td>
-            <td>
-              {{task.name}}
-            </td>
-            <td>
-              {{task.priority}}
-            </td>
-            <td>
-              {{dateFormat(task.deadline)}}
-            </td>
-            <td>
-              <button class="btn btn-danger" (click)="deleteTask($index)">X</button>
-            </td>
-        </tr>
-        }
+      <tr>
+          <td>
+            <input type="checkbox" class="form-check-input" (change)="onChange($index)">
+          </td>
+          <td>
+      {{task.name}}
+      </td>
+      <td>
+      {{task.priority}}
+      </td>
+      <td>
+      {{dateFormat(task.deadline)}}
+      </td>
+      <td>
+        <button class="btn btn-danger" (click)="deleteTask($index)">X</button>
+      </td>
+  </tr>
+      }
     </table>
   </div>
 </div>

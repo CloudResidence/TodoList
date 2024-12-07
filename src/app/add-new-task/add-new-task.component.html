@@ -1,12 +1,12 @@
 <div class="card shadow text-center">
   <div class="card-header bg-light">
-      <h4>Új feladat hozzáadása</h4>
+    <h4>Új feladat hozzáadása</h4>
   </div>
 
   <div class="card-body">
     <form [formGroup]="formData" (ngSubmit)="onSubmit()">
       <div class="col">
-        <label for="name" class="form-label mx-3" >Új feladat neve:</label>
+        <label for="name" class="form-label mx-3">Új feladat neve:</label>
         <input type="text" id="name" formControlName="name">
         <div *ngIf="formData.get('name')?.invalid && formData.get('name')?.touched">
           <small *ngIf="formData.get('name')?.errors?.['required']">A név megadása kötelező!</small>
@@ -26,7 +26,7 @@
 
       </div>
 
-    <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Hozzáadás</button>
+      <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Hozzáadás</button>
     </form>
   </div>
 

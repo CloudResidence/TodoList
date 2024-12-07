@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Task} from '../models/task';
 
 @Injectable({
@@ -6,11 +6,11 @@ import {Task} from '../models/task';
 })
 export class TodoService {
 
-  private storageKey ='tasks';
+  private storageKey = 'tasks';
 
   constructor() {
-    if(!localStorage.getItem(this.storageKey)) {
-      const defaultTasks:Task[] = [
+    if (!localStorage.getItem(this.storageKey)) {
+      const defaultTasks: Task[] = [
         {
           id: 1,
           name: 'Todo 1',
@@ -36,22 +36,23 @@ export class TodoService {
 
         },
       ];
-      localStorage.setItem(this.storageKey,JSON.stringify(defaultTasks));
+      localStorage.setItem(this.storageKey, JSON.stringify(defaultTasks));
     }
   }
+
   getTasks(): Task[] {
-    return JSON.parse(localStorage.getItem(this.storageKey) ||'[]');
+    return JSON.parse(localStorage.getItem(this.storageKey) || '[]');
   }
 
-  deleteTask(index:number ) : void {
+  deleteTask(index: number): void {
     const tasks = this.getTasks();
-    tasks.splice(index,1);
-    localStorage.setItem(this.storageKey,JSON.stringify(tasks));
+    tasks.splice(index, 1);
+    localStorage.setItem(this.storageKey, JSON.stringify(tasks));
   }
 
   addTask(task: Task) {
     const tasks = this.getTasks();
     tasks.push(task);
-    localStorage.setItem(this.storageKey,JSON.stringify(tasks));
+    localStorage.setItem(this.storageKey, JSON.stringify(tasks));
   }
 }

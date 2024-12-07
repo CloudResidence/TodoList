@@ -10,21 +10,23 @@ import {CommonModule} from '@angular/common';
   templateUrl: './add-new-task.component.html',
   styleUrl: './add-new-task.component.css'
 })
-export class AddNewTaskComponent implements OnInit{
+export class AddNewTaskComponent implements OnInit {
 
   formData!: FormGroup;
 
   constructor(public todoService: TodoService) {
     this.formData = new FormGroup({
-    name : new FormControl('', [Validators.required]),
-    priority : new FormControl('normál', [Validators.required]),
-    deadline : new FormControl('',)});
+      name: new FormControl('', [Validators.required]),
+      priority: new FormControl('normál', [Validators.required]),
+      deadline: new FormControl('',)
+    });
   }
+
   ngOnInit() {
   }
 
-  onSubmit(){
-    if(this.formData.valid) {
+  onSubmit() {
+    if (this.formData.valid) {
       this.todoService.addTask(this.formData.value);
       this.formData.reset();
       console.log('Mentve');
