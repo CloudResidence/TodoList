@@ -9,10 +9,10 @@
         <th>Határideje</th>
         <th>Törlés</th>
       </tr>
-      @for(task of todoService.tasks; track task.id) {
+      @for(task of tasks; track task.id) {
         <tr>
             <td>
-              <input type="checkbox" class="form-check-input" (change)="onChange()">
+              <input type="checkbox" class="form-check-input" (change)="onChange($index)">
             </td>
             <td>
               {{task.name}}
@@ -24,7 +24,7 @@
               {{dateFormat(task.deadline)}}
             </td>
             <td>
-              <button class="btn btn-danger" (click)="deleteTask(task)">X</button>
+              <button class="btn btn-danger" (click)="deleteTask($index)">X</button>
             </td>
         </tr>
         }

@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {TodoService} from '../todo.service';
+import {TodoService} from '../services/todo.service';
 import {Task} from '../models/task';
 import {formatDate} from '@angular/common';
 
@@ -15,22 +15,30 @@ export class ListTasksComponent implements OnInit{
   }
   //@Input() taskInput!: Task;
 
-  task!: Task;
+  tasks: Task[] = [];
   completed: boolean = false;
 
   ngOnInit(): void {
+    this.loadTasks();
   }
 
-  onChange() {
-    this.completed = !this.completed;
-    this.task.isCompleted = !this.task.isCompleted;
+  onChange(index: number) {
+    this.tasks[index].isCompleted = !this.tasks[index].isCompleted;
   }
 
-  deleteTask(itemToDelete: Task) {
-    this.task = itemToDelete;
-    this.todoService.deleteTask(itemToDelete);
+  deleteTask(index: number) {
+    this.todoService.deleteTask(index);
+    this.loadTasks();
   }
-  dateFormat(date:Date) {
-     return formatDate(date,'yyyy-MM-dd','en-us');
+  dateFormat(date:string) {
+    if(date!="") {
+      return formatDate(date, 'yyyy-MM-dd', 'en-us');
+    }else {
+      return "";
+    }
+  }
+
+  loadTasks() {
+    this.tasks = this.todoService.getTasks();
   }
 }

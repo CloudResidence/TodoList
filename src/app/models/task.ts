@@ -1,7 +1,7 @@
 export interface Task {
   id: number;
-  name: String;
-  priority: String;
-  deadline: Date;
+  name: string;
+  priority: string;
+  deadline: string;
   isCompleted: boolean;
 }

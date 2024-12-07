@@ -1,0 +1,33 @@
+<div class="card shadow text-center">
+  <div class="card-header bg-light">
+      <h4>Új feladat hozzáadása</h4>
+  </div>
+
+  <div class="card-body">
+    <form [formGroup]="formData" (ngSubmit)="onSubmit()">
+      <div class="col">
+        <label for="name" class="form-label mx-3" >Új feladat neve:</label>
+        <input type="text" id="name" formControlName="name">
+        <div *ngIf="formData.get('name')?.invalid && formData.get('name')?.touched">
+          <small *ngIf="formData.get('name')?.errors?.['required']">A név megadása kötelező!</small>
+        </div>
+      </div>
+      <div class="col">
+        <label for="priority" class="mx-3 p-2">Válassza ki az új feladat prioritását</label>
+        <select id="priority" formControlName="priority" required>
+          <option value="alacsony">alacsony</option>
+          <option value="normál" selected="selected">normál</option>
+          <option value="magas">magas</option>
+        </select>
+        <div class="col">
+          <label for="deadline" class="form-label mx-3">Új feladat határideje:</label>
+          <input type="text" id="deadline" formControlName="deadline">
+        </div>
+
+      </div>
+
+    <button type="submit" class="btn btn-primary" [disabled]="formData.invalid">Hozzáadás</button>
+    </form>
+  </div>
+
+</div>
