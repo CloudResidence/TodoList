@@ -1,3 +1,10 @@
+/**
+ * Ha nincsenek adatok, 3 feladatot betölt alapértelmezetten
+ * A service a localStorage-ból tölti be ('getTasks'), lletve abba menti el ('addTasks') az adatokat
+ * A műveleteknek megfelelő metódusat a list és add komponensekből hívjuk meg
+ *
+ * A splice metódussal eltávolítjuk az adott index-el rendelkezőt, majd a localStorageba már ez az elem nélkül tölti vissza
+ */
 import {Injectable} from '@angular/core';
 import {Task} from '../models/task';
 

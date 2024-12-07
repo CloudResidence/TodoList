@@ -1,6 +1,15 @@
+/**
+ * A komponens a formban várja az új feladat hozzáadását
+ * Az onSubmit disabled, amíg a form invalid,
+ * azaz ha a name vagy priority nincs kitöltve
+ * A priority alapértelmezetten a 'normál' értéket veszi,
+ * a dropdown menüben is ez lesz kiválasztva
+ *
+ * A form értékeit átadja a todoServicenek
+ *
+ */
 import {Component, OnInit} from '@angular/core';
 import {TodoService} from '../services/todo.service';
-import {Task} from '../models/task';
 import {FormControl, Validators, ReactiveFormsModule, FormGroup} from '@angular/forms';
 import {CommonModule} from '@angular/common';
 

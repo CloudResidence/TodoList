@@ -1,3 +1,10 @@
+/**
+ * Ez a komponens jeleníti meg a feladatok listáját,
+ * a feladatokat a todoService getTask metódusából tölti be,
+ *
+ * A dátumot 'yyyy-MM-dd' formára alakítja
+ *
+ */
 import {Component, Input, OnInit} from '@angular/core';
 import {TodoService} from '../services/todo.service';
 import {Task} from '../models/task';
